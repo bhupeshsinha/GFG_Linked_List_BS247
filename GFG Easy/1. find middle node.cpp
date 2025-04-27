@@ -12,7 +12,7 @@ class Node
             this->data = x;
             this->next = nullptr;
         }
-}
+};
 
 int findLength(Node* head)
 {
@@ -33,7 +33,7 @@ int getMiddle(Node* head)
     Node* temp = head;
     int len = findLength(head);
     
-    int middle = (len%2 == 0) ? (len/2)+1:len/2;
+    int middle = len/2;
     while(middle--)
     {
         temp=temp->next;
@@ -51,6 +51,8 @@ int main()
     head->next->next->next = new Node(40);
     head->next->next->next->next = new Node(50);
     head->next->next->next->next->next = new Node(60);
+    head->next->next->next->next->next->next = new Node(70);
+    head->next->next->next->next->next->next->next = new Node(80);
 
     cout<<"Middle Node is "<<getMiddle(head);
 }
