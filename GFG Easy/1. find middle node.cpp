@@ -14,6 +14,20 @@ class Node
         }
 }
 
+int getMiddle(Node* head)
+{
+    Node* temp = head;
+    int len = findLength(head);
+    
+    int middle len/2;
+    while(middle--)
+    {
+        temp=temp->next;
+    }
+
+    return temp->data;
+}
+
 int main()
 {
     Node* head = new Node(10);
@@ -23,4 +37,6 @@ int main()
     head->next->next->next = new Node(40);
     head->next->next->next->next = new Node(50);
     head->next->next->next->next->next = new Node(60);
+
+    cout<<"Middle Node is "<<getMiddle(head);
 }
