@@ -14,12 +14,26 @@ class Node
         }
 }
 
+int findLength(Node* head)
+{
+    Node* temp = head;
+    int len=0;
+
+    while(temp)
+    {
+        len++;
+        temp=temp->next;
+    }
+
+    return len;
+}
+
 int getMiddle(Node* head)
 {
     Node* temp = head;
     int len = findLength(head);
     
-    int middle len/2;
+    int middle = (len%2 == 0) ? (len/2)+1:len/2;
     while(middle--)
     {
         temp=temp->next;
