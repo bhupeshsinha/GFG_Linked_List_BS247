@@ -38,6 +38,24 @@ Node* reverseDLL(Node* node)
     return reverseDLL(node->prev);
 }
 
+Node* OPTreverseDLL(Node* node)
+{
+    if(node == nullptr || node->next == nullptr)return node;
+    Node* prevNode=nullptr;
+    Node* curNode = node;
+
+    while(curNode)
+    {
+        prevNode=curNode->prev;
+        curNode->prev = curNode->next;
+        curNode->next = prevNode;
+
+        curNode = curNode->prev;
+    }
+
+    return prevNode->prev;
+}
+
 int main()
 {
     Node* head = new Node(10);
@@ -54,7 +72,8 @@ int main()
     cout<<"Before "<<endl;
     printLL(head);
 
-    Node* newHead = reverseDLL(head);
+    // Node* newHead = reverseDLL(head);
+    Node* newHead = OPTreverseDLL(head);
 
     cout<<"After "<<endl;
     printLL(newHead);
